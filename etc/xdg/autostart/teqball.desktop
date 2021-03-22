@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=TeqBall
+Exec=sudo /usr/bin/python3 /home/pi/TeqBall/main.py

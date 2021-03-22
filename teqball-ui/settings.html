@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
+    <meta property="description" content="TeqBall Display UI" />
+  
+    <title>TeqBall Display settings</title>
+  
+    <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favico.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favico.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favico.png" />
+    <link rel="mask-icon" href="images/favico.png" color="#000000" />
+
+    <script src="lib/mqtt.min.js"></script> 
+    <script src="lib/config.js"></script> 
+    <script src="lib/mqttclient.js"></script> 
+    <script src="lib/mqttmessage.js"></script> 
+    <script src="lib/settingscontroller.js"></script> 
+
+  </head>
+  <body>
+
+    <script>
+
+      const client = new MqttClient();
+      client.startup();
+
+      const settingsController = new SettingsController(client);
+      client.addController(settingsController);
+
+    </script>
+
+    <div class="container">
+
+      <!-- Menu -->
+      <div class="row">
+        <div class="col">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">TeqBall Display</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="settings.html">Settings</a>
+                </li>                
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <form>
+
+        <!-- Content -->
+        <div class="row">
+          <div class="col-2">
+            
+            <input type="button" class="form-control" value="Stop" onclick="settingsController.halt()" /> 
+
+          </div>
+          <div class="col-2">
+            
+            <input type="button" class="form-control" value="reset" onclick="settingsController.reset()" /> 
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+          	<pre id="pingBack"></pre>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+			Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a><br/>
+			Favico: <a href="http://www.freepik.com">Designed by brgfx / Freepik</a><br/>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+
+
+  </body>
+</html>

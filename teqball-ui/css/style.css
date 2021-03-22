@@ -1,0 +1,124 @@
+/*
+
+style.css
+
+*/
+
+h2
+{
+	font-size: 14pt;
+	margin-top: 40px;
+}
+
+.shotClockTime
+{
+	font-family: "Arial";
+	font-size: 100px;
+	line-height: 140px;
+	text-align: center;
+}
+
+.gameClockTime
+{
+	font-family: "Arial";
+	font-size: 100px;
+	line-height: 100px;
+	text-align: center;
+}
+
+.timeoutClockTime
+{
+	font-family: "Arial";
+	font-size: 30px;
+	line-height: 45px;
+	text-align: center;
+}
+
+.col
+{
+	margin-bottom: 5px;
+}
+
+.button
+{
+	background-clip: padding-box;
+	background-color: rgb(255, 255, 255);
+	border-bottom-color: rgb(206, 212, 218);
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom-style: solid;
+	border-bottom-width: 0.9px;
+	border-image-outset: 0;
+	border-image-repeat: stretch;
+	border-image-slice: 100%;
+	border-image-source: none;
+	border-image-width: 1;
+	border-left-color: rgb(206, 212, 218);
+	border-left-style: solid;
+	border-left-width: 0.9px;
+	border-right-color: rgb(206, 212, 218);
+	border-right-style: solid;
+	border-right-width: 0.9px;
+	border-top-color: rgb(206, 212, 218);
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-top-style: solid;
+	border-top-width: 0.9px;
+	box-sizing: border-box;
+	color: rgb(73, 80, 87);
+	display: block;
+
+	height: 50px;
+	width: 60px;
+	margin: 5px;
+
+	text-align: center;
+	vertical-align: middle;
+	font-size: 1.5em;
+
+	padding-bottom: 6px;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 6px;
+}
+
+#pingBack
+{
+	margin-top: 15px;
+}
+
+
+@media screen and (min-width: 200px) 
+{ 
+	.button
+	{
+		height: 40px;
+		width: 50px;	
+		font-size: 1.3em;
+		margin: 2px;
+	}
+}
+
+@media screen and (min-width: 576px) 
+{ 
+	.button
+	{
+		height: 40px;
+		width: 50px;	
+	}
+}
+
+@media screen and (min-width: 768px) 
+{
+
+}
+
+@media screen and (min-width: 992px) 
+{
+
+}
+
+@media screen and (min-width: 1200px) 
+{
+
+}
