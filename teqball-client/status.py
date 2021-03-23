@@ -19,6 +19,7 @@ class Status:
 	isHalting = False
 
 	hallOfFameDisplay = None
+	winnerDisplay = None
 	hallOfFameInterval = 0
 	displayMode = 0
 	

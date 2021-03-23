@@ -76,7 +76,7 @@
             </div>    
           </div>
 
-          <div class="col col-4">
+          <div class="col-3">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text">Points:</span>
@@ -87,7 +87,11 @@
                   <button class="btn btn-outline-secondary" type="button" onclick="scoreBoardController.decTeamPoints(1, 1)">-1</button>
               </div>        
             </div>    
-          </div>             
+          </div>    
+
+          <div class="col-1">
+              <button class="btn btn-outline-primary" type="button" onclick="scoreBoardController.setWin(1)">Win</button>
+          </div>         
         </div>
 
        <!-- Team 2 -->
@@ -101,7 +105,7 @@
             </div>    
           </div>
 
-          <div class="col-4">
+          <div class="col-3">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text">Points:</span>
@@ -113,6 +117,10 @@
               </div>        
             </div>    
           </div>           
+
+          <div class="col-1">
+              <button class="btn btn-outline-primary" type="button" onclick="scoreBoardController.setWin(2)">Win</button>
+          </div>         
         </div>     
 
         <br/>

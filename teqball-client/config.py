@@ -30,6 +30,9 @@ FONT_FOLDER = "/home/pi/TeqBall/fonts/"
 # Images
 IMAGE_FOLDER = "/home/pi/TeqBall/images/"
 
+# Database
+DB_FOLDER = "/home/pi/TeqBall/db/"
+
 # Scoreboard display settings
 SCOREBOARD_TIME_FONT_TYPE = "OpenSans-Bold.ttf"
 SCOREBOARD_TIME_FONT_SIZE = 160
@@ -58,9 +61,23 @@ HOF_TITLE_COLOR = (255, 255, 255)
 HOF_TITLE_TOP = 0
 
 HOF_ROW_FONT_TYPE = "OpenSans-Bold.ttf"
-HOF_ROW_FONT_SIZE = 30
+HOF_ROW_FONT_SIZE = 90
 HOF_ROW_COLOR = (255, 255, 255)
-HOW_ROW_TOP = 210
+HOF_ROW_TOP = 240
+HOF_ROW_LEFT = 50
+
+HOF_ROW_LIMIT = 3
+
+# Winner display settings
+WINNER_TITLE_FONT_TYPE = "OpenSans-Bold.ttf"
+WINNER_TITLE_FONT_SIZE = 150
+WINNER_TITLE_COLOR = (255, 255, 255)
+WINNER_TITLE_TOP = 40
+
+WINNER_TEAM_FONT_TYPE = "OpenSans-Bold.ttf"
+WINNER_TEAM_FONT_SIZE = 180
+WINNER_TEAM_COLOR = (255, 255, 255)
+WINNER_TEAM_TOP = DISPLAY_HEIGHT / 2
 
 # Timing
 MAIN_SLEEP = 0.01 # in seconds

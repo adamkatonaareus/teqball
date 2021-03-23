@@ -8,6 +8,7 @@ import status
 import controller
 import log4p
 import datetime
+import sqlite3 as sl
 
 #
 # Class to control the scoreboard.
@@ -58,6 +59,7 @@ class ScoreBoardController(controller.Controller):
 		switcher = {
 			"setteamname": self.setTeamName,
 			"setteampoints": self.setTeamPoints,
+			"setwin": self.setWin,
 			"ping": self.ping,
 			"reset": self.reset
 		}	
@@ -68,8 +70,8 @@ class ScoreBoardController(controller.Controller):
 			func(message)
 
 		except Exception as e:
-				log.error("Unexpected error: " + str(e))
-				log.error(e)
+				self.log.error("Unexpected error: " + str(e))
+				self.log.error(e)
 
 
 
@@ -93,6 +95,34 @@ class ScoreBoardController(controller.Controller):
 		self.status.display.doDrawTeamPoints = True
 
 		self.ping(params)
+
+		# Switch back from hall of fame
+		if (self.status.displayMode != 0):
+			self.status.displayMode = 0
+			self.status.hallOfFameInterval = 0
+			self.status.display.doInit = True
+
+
+	def setWin(self, params):
+
+		self.log.debug("Setting winner " + str(params["teamId"]))
+
+		self.status.winner = params["teamId"]
+
+		# Store data
+		dbConnection = sl.connect(CONFIG.DB_FOLDER + "teqball.db")		
+
+		sql = "INSERT INTO HALL_OF_FAME (team, points) values(?, ?)"
+		data = [ (self.status.teamName[0], self.status.teamPoints[0]),
+			(self.status.teamName[1], self.status.teamPoints[1]) ]
+
+		with dbConnection:
+			dbConnection.executemany(sql, data)
+
+		# Switch to the winner display
+		self.status.hallOfFameInterval = 0
+		self.status.displayMode = 2
+		self.status.winnerDisplay.doDraw = True
 
 
 	def ping(self, params):
