@@ -23,6 +23,8 @@ class Status:
 	hallOfFameInterval = 0
 	displayMode = 0
 	
+	isHofEnabled = 0
+
 
 	#
 	# Constructor

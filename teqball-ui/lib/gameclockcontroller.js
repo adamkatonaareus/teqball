@@ -57,7 +57,6 @@ class GameClockController
 		this.client.publish(MqttMessage.createCommand(this.MODULE_NAME, "settime", time));
 	}
 
-
 	onMessage(payload)
 	{
 		if (payload.module != this.MODULE_NAME)

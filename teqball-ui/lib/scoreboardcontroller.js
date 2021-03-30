@@ -160,6 +160,16 @@ class ScoreBoardController
 	}
 
 
+	/*
+		Enable/diable Hall of fame.
+	*/
+	enableHof()
+	{
+		var control = document.getElementById('hofCheckBox');
+		this.client.publish(MqttMessage.createCommand(this.MODULE_NAME, "enableHof", control.checked));
+	}
+
+
 	onMessage(payload)
 	{
 		if (payload.module != this.MODULE_NAME)
@@ -186,7 +196,9 @@ class ScoreBoardController
 					document.getElementById("team2").value = payload.teamName[1];
 
 					document.getElementById("teamPoints1").value = payload.teamPoints[0];
-					document.getElementById("teamPoints2").value = payload.teamPoints[1];			
+					document.getElementById("teamPoints2").value = payload.teamPoints[1];	
+
+					document.getElementById("hofCheckBox").checked = payload.isHofEnabled;		
 				}
 
 				break;

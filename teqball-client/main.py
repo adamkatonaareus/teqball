@@ -80,14 +80,16 @@ while True:
 		status.hallOfFameInterval = status.hallOfFameInterval + CONFIG.MAIN_SLEEP
 		if (status.hallOfFameInterval >= CONFIG.HOF_CHANGE_INTERVAL_SECS):
 			status.hallOfFameInterval = 0
-			if (status.displayMode == 0):
-				#log.debug("Switching to Hall of Fame")
-				status.displayMode = 1
-				status.hallOfFameDisplay.doDraw = True
-			else:
-				#log.debug("Switching to Scoreboard")
-				status.displayMode = 0
-				status.display.doInit = True
+
+			if (status.isHofEnabled):
+				if (status.displayMode == 0):
+					#log.debug("Switching to Hall of Fame")
+					status.displayMode = 1
+					status.hallOfFameDisplay.doDraw = True
+				else:
+					#log.debug("Switching to Scoreboard")
+					status.displayMode = 0
+					status.display.doInit = True
 
 
 		if (status.isHalting):
@@ -100,7 +102,7 @@ while True:
 				status.display.draw()
 			elif (status.displayMode == 1):
 				status.hallOfFameDisplay.draw()
-			else:
+			elif (status.displayMode == 2):
 				status.winnerDisplay.draw()
 
 

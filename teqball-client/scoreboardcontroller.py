@@ -60,6 +60,7 @@ class ScoreBoardController(controller.Controller):
 			"setteamname": self.setTeamName,
 			"setteampoints": self.setTeamPoints,
 			"setwin": self.setWin,
+			"enableHof": self.enableHof,
 			"ping": self.ping,
 			"reset": self.reset
 		}	
@@ -125,6 +126,21 @@ class ScoreBoardController(controller.Controller):
 		self.status.winnerDisplay.doDraw = True
 
 
+	def enableHof(self, params):
+
+		self.log.debug("Enabling/disabling Hall of fame. Value: " + str(params["value"]))
+		self.status.isHofEnabled = params["value"]
+		self.status.hallOfFameInterval = 0
+
+		if (self.status.isHofEnabled):
+			self.status.displayMode = 1
+			self.status.hallOfFameDisplay.doDraw = True
+		else:
+			self.status.displayMode = 0
+			self.status.display.doInit = True
+
+
+
 	def ping(self, params):
 
 		# Only do this if we are the bosses.
@@ -139,6 +155,8 @@ class ScoreBoardController(controller.Controller):
 
 				"teamName": self.status.teamName,
 				"teamPoints": self.status.teamPoints,
+
+				"isHofEnabled": self.status.isHofEnabled
 			}
 
 			self.status.mqttClient.publish(message)
